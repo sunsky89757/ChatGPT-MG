@@ -158,7 +158,7 @@ export function SideBar(props: { className?: string }) {
           ChatGPT Next MG版
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          MG版如同Ta的颜色一样奔放<br>https://www.gptacg.com/</br>
+          MG版如同Ta的颜色一样奔放
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
