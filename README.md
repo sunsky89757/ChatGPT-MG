@@ -23,19 +23,20 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Hk-Gosuto/ChatGPT-Next-Web-LangChain)
 
+![cover](./docs/images/gpt-vision-example.jpg)
+
 ![plugin-example](./docs/images/plugin-example.png)
 
 ![wiki-plugin](./docs/images/wiki-plugin-example.png)
 
 ![dall-e-plugin](./docs/images/dalle-plugin-example.png)
 
-![cover](./docs/images/cover.png)
-
 </div>
 
 ## 主要功能
 
 - 除插件工具外，与原项目保持一致 [ChatGPT-Next-Web 主要功能](https://github.com/Yidadaa/ChatGPT-Next-Web#主要功能)
+- 支持 GPT-4V(视觉) 模型
 - 基于 [LangChain](https://github.com/hwchase17/langchainjs) 实现的插件功能，目前支持以下插件，未来会添加更多
   - 搜索
     - [SerpAPI](https://js.langchain.com/docs/api/tools/classes/SerpAPI)
@@ -45,6 +46,8 @@
     - [Calculator](https://js.langchain.com/docs/api/tools_calculator/classes/Calculator)
   - 网络请求
     - [WebBrowser](https://js.langchain.com/docs/api/tools_webbrowser/classes/WebBrowser)
+    - PDFBrowser
+      - ⚠ 仅在非vercel环境部署时可用 ⚠
   - 其它
     - [Wiki](https://js.langchain.com/docs/api/tools/classes/WikipediaQueryRun)
     - DALL-E 3
@@ -88,7 +91,6 @@
 
 ## 最新动态
 
-- 🚀 v2.9.6 版本发布
 - 🚀 v2.9.5 正式版本发布
 - 🚀 v2.9.1-plugin-preview 预览版发布。
 
@@ -249,6 +251,12 @@ docker run -d -p 3000:3000 \
 ## 捐赠
 
 [请项目原作者喝杯咖啡](https://www.buymeacoffee.com/yidadaa)
+
+## 感谢
+
+<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" alt="JetBrains Logo (Main) logo." height='120'>
+
+感谢 [jetbrains](https://www.jetbrains.com/) 为本项目提供的 [开源许可证](https://www.jetbrains.com/community/opensource/)
 
 ## 开源协议
 
