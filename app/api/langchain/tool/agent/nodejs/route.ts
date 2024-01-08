@@ -5,13 +5,14 @@ import { EdgeTool } from "../../../../langchain-tools/edge_tools";
 import { OpenAI } from "langchain/llms/openai";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { NodeJSTool } from "@/app/api/langchain-tools/nodejs_tools";
+import { ModelProvider } from "@/app/constant";
 
 async function handle(req: NextRequest) {
   if (req.method === "OPTIONS") {
     return NextResponse.json({ body: "OK" }, { status: 200 });
   }
   try {
-    const authResult = auth(req);
+    const authResult = auth(req, ModelProvider.GPT);
     if (authResult.error) {
       return NextResponse.json(authResult, {
         status: 401,
@@ -54,13 +55,6 @@ async function handle(req: NextRequest) {
       );
     };
 
-    var edgeTool = new EdgeTool(
-      apiKey,
-      baseUrl,
-      model,
-      embeddings,
-      dalleCallback,
-    );
     var nodejsTool = new NodeJSTool(
       apiKey,
       baseUrl,
@@ -68,9 +62,8 @@ async function handle(req: NextRequest) {
       embeddings,
       dalleCallback,
     );
-    var edgeTools = await edgeTool.getCustomTools();
     var nodejsTools = await nodejsTool.getCustomTools();
-    var tools = [...edgeTools, ...nodejsTools];
+    var tools = [...nodejsTools];
     return await agentApi.getApiHandler(req, reqBody, tools);
   } catch (e) {
     return new Response(JSON.stringify({ error: (e as any).message }), {
